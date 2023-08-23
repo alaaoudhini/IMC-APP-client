@@ -45,7 +45,7 @@ export class AdminUsersComponent implements OnInit {
     console.log('Manage Users');
 
     // Assuming you have a function to get the authentication token, e.g., getAuthToken()
-    const authToken = this.getAuthToken();
+    const authToken =  localStorage.getItem('token');
 
     // Set the headers with the authentication token
     const headers = {
@@ -87,7 +87,7 @@ export class AdminUsersComponent implements OnInit {
     console.log('User Form Data:', this.userForm.value);
 
     // Assuming you have a function to get the authentication token, e.g., getAuthToken()
-    const authToken = this.getAuthToken();
+    const authToken =  localStorage.getItem('token');
   
     // Set the headers with the authentication token
     const headers = {
@@ -132,7 +132,7 @@ export class AdminUsersComponent implements OnInit {
     console.log('User Form Data:', this.userForm.value);
 
   // Assuming you have a function to get the authentication token, e.g., getAuthToken()
-  const authToken = this.getAuthToken();
+  const authToken =  localStorage.getItem('token');
 
   // Set the headers with the authentication token
   const headers = {
@@ -156,7 +156,7 @@ export class AdminUsersComponent implements OnInit {
     console.log('User Deleted');
   
     // Assuming you have a function to get the authentication token, e.g., getAuthToken()
-    const authToken = this.getAuthToken();
+    const authToken = localStorage.getItem('token');
   
     // Set the headers with the authentication token
     const headers = {
@@ -177,11 +177,7 @@ export class AdminUsersComponent implements OnInit {
   }
   
   // This is a hypothetical function, replace it with your actual token retrieval logic
-  getAuthToken(): string 
-  {
-    // Replace this with your actual token retrieval logic
-    return 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMzE5YTkzYWFjZGEwMmNjZWRlOGIyY2UxZjYxOGYzNGI4OTU2ZDIyODNjM2YxYjUyYjlhMDdhMGZlOGM4YWFjMTZkY2RhNDMyMTBjZDBiZDIiLCJpYXQiOjE2OTI0ODg2OTQuNzA0MzkyLCJuYmYiOjE2OTI0ODg2OTQuNzA0Mzk1LCJleHAiOjE3MjQxMTEwOTQuNzAxODEyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.sLaLMo4w6u9EXSpA-DHNA_i5Vy9FfHwNZRWBycE0jwBR9vy0MhiEuA87nVL8TP4Ovi72qVNcz0lKwo9Z2DXMjj3rA_6yJzUEKrUuZtX5VueNIKaJdzW2dcDt8jykCbyklqdx_FUfGCnFDS3O6HBdxT9WLNtGH-F9U8Rj3HrTeLUrCJi9bwLlmv89rabmrY1Xbaikn9eI1WxoVSrh8YYRZECIzo9RPCDnTv-yf-LXv5NOwjePhNemKQtzNTNCxADNYnrrlWlagULeAcx-sxVyu0VNaZYOpadGG7f36mpdqgw9H0eduztGoEYUDT3CQD6laACUhieYzOYXQa7ipSrakaOxBXyGIrvGsJDoyNoQyKzptdYBMAAImVBYYxCyVx-B5_K0RK0Gx3yk6vD7wxAuyidmbDvnhTf3PkmqPlmNMeBIOi7oOfzq8IzitKznsMvGoijwll-qjo8fQ0idRsWr2kPu0KO0JDOoRbsZSuSP4TZnenKmASeD1tjB4Yo5RPF-iYY31AzfQ9B_e01JWmg3myhqoZoBZqA4gMbA6u0WPiIczTZbLTUG9KUc1MNUQPJPlYjfropGClkgxm80sAVSCSLbO8Md7PjHYu5Jr9Hc8hJ9rGlOAI1QliDaI2J0KrCuVgaNcos8SHBT548y6EDn43fxmc-FXs0tutb9L79iyi8'; // Your token here
-  }
+ 
 
   showSnackBar(message: string, cssClass: string) {
     this.snackBar.open(message, 'Close', {

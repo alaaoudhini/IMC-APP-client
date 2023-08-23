@@ -2,6 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  scroll-behavior: auto;
 }
 
 h1
@@ -200,7 +201,7 @@ form {
 
 .user-list,
 .add-user-form {
-  overflow: auto;
+  overflow: hidden;
   
 }
 

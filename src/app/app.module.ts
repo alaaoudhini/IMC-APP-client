@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminUsersComponent } from './admin/users/users.component';
 import { ActivitiesComponent } from './admin/activities/activities.component';
 import { RegimesComponent } from './admin/regimes/regimes.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { RegimesComponent } from './admin/regimes/regimes.component';
     AdminUsersComponent,
     ActivitiesComponent,
     RegimesComponent,
+    NavbarComponent,
 
   ],
   imports: [

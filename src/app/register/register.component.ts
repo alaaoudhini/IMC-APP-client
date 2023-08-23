@@ -19,7 +19,9 @@ export class RegisterComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      dateOfBirth: ['', Validators.required]
+      dateOfBirth: ['', Validators.required],
+      regime_id:[null]
+      
     });
   }
 
@@ -36,7 +38,8 @@ export class RegisterComponent implements OnInit {
       name: this.registerForm.value.name,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
-      date_of_birth: this.registerForm.value.dateOfBirth
+      date_of_birth: this.registerForm.value.dateOfBirth,
+      regime_id:this.registerForm.value.regime_id
     };
   
     this.http.post('http://localhost:8000/api/register', data).subscribe(

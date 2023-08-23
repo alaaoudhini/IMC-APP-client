@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
     this.http.post('http://localhost:8000/api/login', data).subscribe(
       (response: any) => {
         console.log('Logged in successfully', response);
+        localStorage.setItem('token',response.token)
   
         this.snackBar.open(response.message, 'Close', {
           duration: 5000,
