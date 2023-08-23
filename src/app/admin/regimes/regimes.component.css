@@ -1,0 +1,146 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1
+  {
+      margin: 1px;
+      padding: 3px;
+  }
+  
+  .modern-button {
+    background-color: #258FE2;
+    color: white;
+    border: none;
+    border-radius: 7.5px;
+    padding: 5px 40px ;
+    font-size: 18px;
+    margin-left: -5%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 50px;
+  }
+  
+  
+  /* Card Styles */
+  .card {
+      border: 2.5px solid #555;
+      border-radius: 7.5px;
+      padding: 10px;
+      margin: 20px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+  }
+  
+  
+  label {
+      display: block;
+      margin-bottom: 5px;
+  }
+  
+  input {
+      width: 99%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+  
+  /* Button Styles */
+  .bcontainer {
+    /* ... your existing container styles ... */
+    display: flex;
+    justify-content: center; /* Horizontally center-align children */
+    align-items: center; /* Vertically center-align children */
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(23, 118, 196);
+  }
+  
+  
+  button:hover {
+      background-color:#535a5f ;
+      color: white;
+      transform: scale(1.05);
+    }
+  
+  .edit-button {
+      background-color: green;
+      color: white;
+      margin-right: 5px;
+  }
+  
+  .delete-button {
+    background-color: rgb(145, 35, 35); /* Set your desired background color */
+    color: white;
+    border: none;
+    border-radius: 8%; /* Makes the button rounded */
+    padding: 10px 12px; /* Adjust padding to control button size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .delete-button:hover {
+    background-color: rgb(238, 31, 31);
+    transform: scale(1.05);
+  }
+  
+  .update-button {
+    background-color: rgb(35, 145, 53); /* Set your desired background color */
+    color: white;
+    border: none;
+    border-radius: 8%; /* Makes the button rounded */
+    padding: 10px 12px; /* Adjust padding to control button size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-left: 0px;
+  }
+  
+  .update-button:hover {
+    background-color: rgb(31, 238, 48);
+    transform: scale(1.05);
+  }
+  
+  /* Table Styles */
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+  }
+  
+  th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+  }
+  
+  .card-header
+  {
+    border: 2.5px solid #555;
+    border-radius: 7.5px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Styles */
+  form {
+    margin: 20px;
+    padding: 20px;
+    border: 2.5px solid #555;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }

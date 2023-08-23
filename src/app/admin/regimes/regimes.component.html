@@ -1,0 +1,87 @@
+<div class="vh-100 bg-image" style="background-image: url('');">
+    <div class="navbar">
+      <h1>Admin Panel</h1>
+      <ul class="nav-links">
+        <li><a routerLink="/admin/users">Users</a></li>
+        <li><a routerLink="/admin/activities">Activities</a></li>
+        <li><a routerLink="/admin/regimes">Regimes</a></li>
+      </ul>
+    </div>
+    
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          Manage Regimes
+        </div>
+        <div class="activity-list">
+          <table>
+            <colgroup>
+              <col style="width: 10%">
+              <col style="width: 20%">
+              <col style="width: 20%">
+              <col style="width: 15%">
+              <col style="width: 15%">
+              <col style="width: 20%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Max IMC</th>
+                <th>Min IMC</th>
+                <th>calorie</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let regime of regimes">
+                <td>{{ regime.id }}</td>
+                <td>{{ regime.nom_reg }}</td>
+                <td>{{ regime.description_reg }}</td>
+                <td>{{ regime.type_reg}}</td>
+                <td>{{ regime.calories_reg }}</td>
+                <td>{{ regime.max_imc_reg }}</td>
+                <td>{{ regime.min_imc_reg }}</td>
+                <td>
+                    <button (click)="updateRegimesData(regime.id)" class="update-button">Update</button>
+                    <button (click)="deleteRegimesData(regime.id)" class="delete-button">Delete</button>      
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          Regime
+        </div>
+        <div class="add-activity-form">
+          <form [formGroup]="regimeForm" (ngSubmit)="addRegimesData()">
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="nom_reg" >
+      
+            <label for="description">Description</label>
+            <input type="text" id="description" formControlName="description_reg" >
+    
+            <label for="type">Type</label>
+            <input type="text" id="type" formControlName="type_reg" >
+
+            <label for="calories">calorie</label>
+            <input type="number" id="calories" formControlName="calories_reg" >
+      
+            <label for="max_imc">Max IMC</label>
+            <input type="number" id="max_imc" formControlName="max_imc_reg" >
+
+            <label for="min_imc">Min IMC</label>
+            <input type="number" id="min_imc" formControlName="min_imc_reg" >
+         
+            <div class="bcontainer">
+            <button type="submit">Add Regime</button>
+          </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>
