@@ -104,7 +104,7 @@ body {
     color: white;
     border: none;
     border-radius: 8%; /* Makes the button rounded */
-    padding: 10px 12px; /* Adjust padding to control button size */
+    padding: 10px 10px; /* Adjust padding to control button size */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     margin-left: 0px;
@@ -112,6 +112,22 @@ body {
   
   .update-button:hover {
     background-color: rgb(31, 238, 48);
+    transform: scale(1.05);
+  }
+
+  .select-button {
+    background-color: rgb(23, 118, 196);
+    color: white;
+    border: none;
+    border-radius: 8%; /* Makes the button rounded */
+    padding: 10px 12px; /* Adjust padding to control button size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-left: 0px;
+  }
+  
+  .select-button:hover {
+    background-color: rgb(35, 66, 92);
     transform: scale(1.05);
   }
   

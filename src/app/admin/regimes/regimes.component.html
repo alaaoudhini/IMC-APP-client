@@ -38,6 +38,7 @@
                 <td>{{ regime.max_imc_reg }}</td>
                 <td>{{ regime.min_imc_reg }}</td>
                 <td>
+                    <button (click)="selectRegime(regime)" class="select-button">Select</button>
                     <button (click)="updateRegimesData(regime.id)" class="update-button">Update</button>
                     <button (click)="deleteRegimesData(regime.id)" class="delete-button">Delete</button>      
                 </td>

@@ -29,7 +29,6 @@ export interface Regime {
   calories_reg: number;
   max_imc_reg: number;
   min_imc_reg: number;
-  
 }
 
 
@@ -40,6 +39,19 @@ export interface Regime {
 export class UserService {
 
   constructor(private http: HttpClient) { }
+
+  login(headers: any, loginForm: any): Observable<User> {
+    const apiUrl = 'http://localhost:8000/api/login';
+    const httpHeaders = new HttpHeaders(headers);
+  
+    const authData = {
+      email: loginForm.email,
+      password: loginForm.password,
+    };
+  
+    return this.http.post<User>(apiUrl, authData , { headers: httpHeaders });
+  }
+  
 
   getUsers(headers: any): Observable<User[]> 
   {
@@ -182,9 +194,6 @@ deleteRegimes(id: number, headers: any): Observable<any> {
 
   return this.http.delete<any>(apiUrl, { headers: httpHeaders });
 }
-
-
-
 
 }
 

@@ -156,6 +156,23 @@ updateRegimesData(userId: number)
 
   }
 
+  selectedActivity: any = null; // Initialize as null
+
+  selectRegime(regime: any) {
+    // Assign the selected activity to the property
+    this.selectedActivity = regime;
+
+    // Populate the form with selected activity data
+    this.regimeForm.patchValue({
+      nom_reg: regime.nom_reg,
+      description_reg: regime.description_reg,
+      type_reg: regime.type_reg,
+      max_imc_reg: regime.max_imc_reg,
+      min_imc_reg: regime.min_imc_reg,
+      calories_reg: regime.calories_reg
+    });
+  }
+
   deleteRegimesData(userId: number)
   {
     console.log('Activity Deleted');
@@ -180,10 +197,6 @@ updateRegimesData(userId: number)
       }
     );
   }
-
-
-
-
 
  showSnackBar(message: string, cssClass: string) {
    this.snackBar.open(message, 'Close', {

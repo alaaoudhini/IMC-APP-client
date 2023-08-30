@@ -1,0 +1,65 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1
+  {
+      margin: 1px;
+      padding: 3px;
+  }
+
+
+  .content {
+    border: 2.5px solid #555;
+    border-radius: 7.5px;
+    padding: 20px;
+    margin: 200px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+  /* Card Styles */
+  .card {
+      border: 2.5px solid #555;
+      border-radius: 7.5px;
+      padding: 20px;
+      margin: 20px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+  }
+  
+  
+  label {
+      display: block;
+      margin-bottom: 5px;
+  }
+  
+  
+  /* Table Styles */
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+  }
+  
+  th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+  }
+  
+  .card-header
+  {
+    border: 2.5px solid #555;
+    border-radius: 7.5px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,0 +1,38 @@
+<div class="content">
+    <app-menu></app-menu>
+    <div class="container">
+      <div class="card-header">
+        Activities By IMC
+      </div>
+      <div class="activity-list">
+        <table>
+          <colgroup>
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col style="width: 10%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>IMC</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Type</th>
+              <th>Video</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="imc && activity">
+              <td>{{ imc }}</td>
+              <td>{{ activity.nom_act }}</td>
+              <td>{{ activity.description_act }}</td>
+              <td>{{ activity.type_act }}</td>
+              <a href="{{ activity.video }}" target="_blank">{{ activity.video }}</a>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

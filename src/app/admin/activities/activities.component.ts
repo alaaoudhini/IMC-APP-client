@@ -152,6 +152,23 @@ export class ActivitiesComponent {
 
   }
 
+  selectedActivity: any = null; // Initialize as null
+
+  selectActivity(activity: any) {
+    // Assign the selected activity to the property
+    this.selectedActivity = activity;
+
+    // Populate the form with selected activity data
+    this.activityForm.patchValue({
+      nom_act: activity.nom_act,
+      description_act: activity.description_act,
+      type_act: activity.type_act,
+      max_imc: activity.max_imc,
+      min_imc: activity.min_imc,
+      video: activity.video
+    });
+  }
+
   deleteActivitiesData(userId: number)
   {
     console.log('Activity Deleted');

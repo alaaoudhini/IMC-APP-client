@@ -20,7 +20,6 @@ body, html {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Change border color and add box-shadow when focused */
 .form-control:focus {
   border-color: black;
   box-shadow: 0 0 8px rgba(37, 143, 226, 0.5);
@@ -76,10 +75,10 @@ body, html {
     /*box-shadow: -2px  0px 15px rgba(107, 107, 107, 0.397);*/
   }
 
-  p {
+  /*p {
     color: white;
     font-size: 15px;
-  }
+  }*/
 
   a:hover {
     color: #535a5f;

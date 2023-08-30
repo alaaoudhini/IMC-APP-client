@@ -1,0 +1,27 @@
+<div class="content">
+<app-menu></app-menu>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        IMC Calculator
+      </div>
+      <div class="card-body">
+        <form [formGroup]="imcForm" (ngSubmit)="calculateIMC()">
+          <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" class="form-control" id="height" formControlName="height">
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" class="form-control" id="weight" formControlName="weight">
+          </div>
+          <button type="submit" class="btn btn-primary">Calculate IMC</button>
+        </form>
+      </div>
+      <div *ngIf="calculatedIMC !== 0" class="result">
+        <p>Your Calculated IMC: {{ calculatedIMC.toFixed(2) }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+  

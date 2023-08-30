@@ -1,0 +1,30 @@
+<div class="burger-icon" [class.burger-white]="isOpen" (click)="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="menu-container" [ngClass]="{'menu-open': isOpen}">
+
+  <div class="avatar-container">
+    <label for="avatarInput">
+      <img *ngIf="previewUrl" [src]="previewUrl" alt="Avatar Preview" class="avatar-image" id="avatarImage">
+    </label>
+    <input type="file" id="avatarInput" style="display:none" (change)="onFileChange($event)" />
+  </div>
+  
+
+  <a routerLink="/imc/calcul-IMC" class="menu-item">calcul-IMC</a>
+  <a routerLink="/imc/regimebyIMC" class="menu-item">Regime</a>
+  <a routerLink="/imc/activitybyIMC" class="menu-item">Activity</a>
+  
+  
+  <!-- Avatar Upload -->
+  <div class="center-container">
+    <button (click)="uploadAvatar()" class="btn">Upload Avatar</button>
+  </div>
+  
+  
+  <a (click)="logout()">
+    <i class="fa fa-power-off" style="color: white; font-size: 1.5rem;"></i>
+  </a>
+</div>

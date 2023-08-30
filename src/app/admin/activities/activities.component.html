@@ -40,6 +40,7 @@
                 <a href="{{ activity.video }}" target="_blank">{{ activity.video }}</a>
                 </td>
                 <td>
+                    <button (click)="selectActivity(activity)" class="select-button">Select</button>
                     <button (click)="updateActivitiesData(activity.id)" class="update-button">Update</button>
                     <button (click)="deleteActivitiesData(activity.id)" class="delete-button">Delete</button>          
                 </td>

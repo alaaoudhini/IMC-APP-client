@@ -1,0 +1,106 @@
+.menu-container {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding-top: 80px;
+    transition: left 0.3s;
+  }
+
+  .menu-item {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  .menu-item:hover {
+    background-color: #555;
+  }
+
+  .burger-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .burger-icon div {
+    width: 30px;
+    height: 4px;
+    background-color: #000; /* Change to black */
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .burger-white div {
+    background-color: #fff; /* Change to white */
+  }
+
+  .menu-open {
+    left: 0;
+  }
+
+  @media (max-width: 768px) {
+    .menu-container {
+      width: 100%;
+    }
+
+    .menu-open {
+      left: 0;
+    }
+
+    .burger-icon {
+      left: 20px;
+    }
+  }
+
+  .fa
+  {
+    margin-left: 100px;
+    margin-top: 500px;
+  }
+
+  .burger-icon.burger-white div {
+    background-color: white;
+  }
+
+  .avatar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .avatar-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 25%;
+    border: 2px solid #ccc;
+  }
+
+  .avatar-container label {
+    cursor: pointer; /* Show pointer cursor when hovering the image */
+  }
+  
+  /* Hide the default file input appearance */
+  .avatar-container input[type="file"] {
+    display: none;
+  }
+
+  /* CSS */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+  
+
+  

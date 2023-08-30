@@ -1,57 +1,75 @@
-
 <div class="vh-100 bg-image" style="background-image: url('');">
-  <app-navbar></app-navbar>   
+  <app-navbar></app-navbar>
 
   <div class="container">
     <div class="card">
-      <div class="card-header ">
-       Manage Users 
+      <div class="card-header">
+        Manage Users
       </div>
       <div class="user-list">
-        <div class="user-card" *ngFor="let user of users" (mouseenter)="user.isHovered = true" (mouseleave)="user.isHovered = false">
-          <div class="user-info">
-            <p><strong>ID:</strong> {{ user.id }}</p>
-            <p><strong>Name:</strong> {{ user.name }}</p>
-            <p><strong>Email:</strong> {{ user.email }}</p>
-            <p><strong>Date of Birth:</strong> {{ user.date_of_birth | date:'yyyy-MM-dd' }}</p>
-            <p><strong>Role:</strong> {{ user.role }}</p>
-          </div>
-          <div class="user-actions" *ngIf="user.isHovered">
-            <button (click)="updateUserData(user.id)" class="update-button">Update</button>
-            <button (click)="deleteUserData(user.id)" class="delete-button">Delete</button>           
-          </div>
-        </div>
+        <table>
+          <colgroup>
+            <col style="width: 10%">
+            <col style="width: 20%">
+            <col style="width: 20%">
+            <col style="width: 20%">
+            <col style="width: 20%">
+            <col style="width: 10%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Date of Birth</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.id }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.date_of_birth | date:'yyyy-MM-dd' }}</td>
+              <td>{{ user.role }}</td>
+              <td>
+                <button (click)="selectUser(user)" class="select-button">Select</button>
+                <button (click)="updateUserData(user.id)" class="update-button">Update</button>
+                <button (click)="deleteUserData(user.id)" class="delete-button">Delete</button>      
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-  
-  <div class="container-form">
-  <div class="card-form">
-    <div class="card-header-form">
-      User
-    </div>
-    <div class="add-user-form">
-      <form [formGroup]="userForm" (ngSubmit)="addUserData()">
-        <label for="name">Name</label>
-        <input type="text" id="name" formControlName="name" >
-  
-        <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email" >
 
-        <label for="password">password</label>
-        <input type="password" id="password" formControlName="password" >
-  
-        <label for="dateOfBirth">Date of Birth</label>
-        <input type="date" id="dateOfBirth" formControlName="date_of_birth" >
-  
-        <label for="role">Role</label>
-        <input type="text" id="role" formControlName="role" >
-        <div class="bcontainer">
-        <button type="submit">Add User</button>
+    <div class="card">
+      <div class="card-header">
+        User
       </div>
-      </form>
+      <div class="add-user-form">
+        <form [formGroup]="userForm" (ngSubmit)="addUserData()">
+          <label for="name">Name</label>
+          <input type="text" id="name" formControlName="name">
+
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email">
+
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password">
+
+          <label for="dateOfBirth">Date of Birth</label>
+          <input type="date" id="dateOfBirth" formControlName="date_of_birth">
+
+          <label for="role">Role</label>
+          <input type="text" id="role" formControlName="role">
+
+          <div class="bcontainer">
+            <button type="submit">Add User</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-
-  </div>
-</div>
 </div>

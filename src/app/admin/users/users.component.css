@@ -2,7 +2,6 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  scroll-behavior: auto;
 }
 
 h1
@@ -11,86 +10,6 @@ h1
     padding: 3px;
 }
 
-/* Card Styles */
-/*.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}*/
-
-.card {
-  border-radius: 7.5px;
-  padding: 10px;
-  margin: 20px auto; /* Center horizontally */
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-  width: 50%;
-  max-width: 100%; /* You can adjust this value */
-}
-
-
-.card-header {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.user-card {
-  background-image: url('src\assets\b.jpg');
-  background-size: cover;
-  background-position: center;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  padding: 15px;
-  transition: background-color 0.3s;
-}
-
-.user-card:hover {
-  /* You can adjust hover background properties here */
-}
-
-.user-info {
-  margin-bottom: 10px;
-}
-
-.user-actions {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input {
-  width: 99%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
-  background-color: rgb(23, 118, 196);
-}
-
-button:hover {
-  background-color:#535a5f ;
-  color: white;
-  transform: scale(1.05);
-}
-
-/* Button Styles */
 .modern-button {
   background-color: #258FE2;
   color: white;
@@ -104,41 +23,112 @@ button:hover {
   margin-top: 50px;
 }
 
-.bcontainer {
-display: flex;
-justify-content: center; /* Horizontally center-align children */
-align-items: center; /* Vertically center-align children */
+
+/* Card Styles */
+.card {
+    border: 2.5px solid #555;
+    border-radius: 7.5px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.delete-button,
-.update-button {
-  margin-left: 10px;
-  padding: 5px 10px;
+.card-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 99%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button Styles */
+.bcontainer {
+  /* ... your existing container styles ... */
+  display: flex;
+  justify-content: center; /* Horizontally center-align children */
+  align-items: center; /* Vertically center-align children */
+}
+
+button {
+  padding: 10px 20px;
   border: none;
-  color: white;
-  border-radius: 8px;  
+  border-radius: 5px;
   cursor: pointer;
+  color: white;
+  background-color: rgb(23, 118, 196);
+}
+
+
+button:hover {
+    background-color:#535a5f ;
+    color: white;
+    transform: scale(1.05);
+  }
+
+.edit-button {
+    background-color: green;
+    color: white;
+    margin-right: 5px;
 }
 
 .delete-button {
   background-color: rgb(145, 35, 35); /* Set your desired background color */
+  color: white;
+  border: none;
+  border-radius: 8%; /* Makes the button rounded */
+  padding: 10px 12px; /* Adjust padding to control button size */
+  cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
 }
 
 .delete-button:hover {
-  background-color: #f44336;
-  transform: scale(1.03);
+  background-color: rgb(238, 31, 31);
+  transform: scale(1.05);
 }
 
 .update-button {
   background-color: rgb(35, 145, 53); /* Set your desired background color */
+  color: white;
   border: none;
+  border-radius: 8%; /* Makes the button rounded */
+  padding: 10px 10px; /* Adjust padding to control button size */
+  cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  margin-left: 0px;
 }
 
 .update-button:hover {
   background-color: rgb(31, 238, 48);
-  transform: scale(1.03);
+  transform: scale(1.05);
+}
+
+.select-button {
+  background-color: rgb(23, 118, 196);
+  color: white;
+  border: none;
+  border-radius: 8%; /* Makes the button rounded */
+  padding: 10px 12px; /* Adjust padding to control button size */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-left: 0px;
+}
+
+.select-button:hover {
+  background-color: rgb(35, 66, 92);
+  transform: scale(1.05);
 }
 
 /* Table Styles */
@@ -170,41 +160,3 @@ form {
   border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.container-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 600px;
-}
-
-.card-form {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 95%;
-  max-width: 1000px;
-}
-
-.card-header-form {
-  border: 2.5px solid #555;
-  border-radius: 7.5px;
-  padding: 10px;
-  text-align: center;
-  margin: 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.user-list,
-.add-user-form {
-  overflow: hidden;
-  
-}
-
-
-
-

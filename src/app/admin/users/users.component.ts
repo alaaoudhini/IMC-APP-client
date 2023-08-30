@@ -26,13 +26,11 @@ export class AdminUsersComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(6)]], 
       date_of_birth: ['', [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]],
       role: ['', Validators.required]
     });
   }
-
-  
 
   ngOnInit() {
     this.getUserData();
@@ -110,48 +108,52 @@ export class AdminUsersComponent implements OnInit {
     
   }  
 
-
   updateUserData(userId: number) {
-
-    if (this.userForm.invalid) {
-      this.snackBar.open('Please fill in all required fields correctly', 'Close', {
-        duration: 5000,
-        panelClass: ['error-snackbar'],
-      });
-      return;
+   
+  
+    const authToken = localStorage.getItem('token');
+    const headers = {
+      'Authorization': `Bearer ${authToken}`
+    };
+  
+    // Create a copy of the form data
+    const formData = { ...this.userForm.value };
+  
+    // Remove the password field if it's empty
+    if (!formData.password) {
+      delete formData.password;
     }
   
-    const data = {
-      name: this.userForm.value.name,
-      email: this.userForm.value.email,
-      password: this.userForm.value.password,
-      date_of_birth: this.userForm.value.dateOfBirth,
-      role: this.userForm.value.role
-    };
-    
-    console.log('User Form Data:', this.userForm.value);
+    this.userService.updateUsers(userId, headers, formData).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.userForm.reset();
+        this.getUserData();
+        this.showSnackBar('User data updated successfully', 'success-snackbar');
+      },
+      (error) => {
+        console.error('Error updating user:', error); 
+        this.showSnackBar('Error while updating user', 'error-snackbar');
+      }
+    );
+  }
 
-  // Assuming you have a function to get the authentication token, e.g., getAuthToken()
-  const authToken =  localStorage.getItem('token');
+selectedActivity: any = null; // Initialize as null
 
-  // Set the headers with the authentication token
-  const headers = {
-    'Authorization': `Bearer ${authToken}`
-  };
+selectUser(user: any) {
+  // Assign the selected activity to the property
+  this.selectedActivity = user;
 
-  this.userService.updateUsers(userId, headers, this.userForm.value).subscribe(
-    (res: any) => {
-      console.log(res);
-      this.userForm.reset();
-      this.getUserData();
-      this.showSnackBar('User data updated successfully', 'success-snackbar');
-    },
-    (error) => {
-      console.error('Error updating user:', error); 
-      this.showSnackBar('Error while updating user', 'error-snackbar');
-    }
-  );
+  // Populate the form with selected user data
+  this.userForm.patchValue({
+    name: user.name,
+    email: user.email,
+    //password: user.password,
+    date_of_birth: user.date_of_birth,
+    role: user.role,
+  });
 }
+
   deleteUserData(userId: number) {
     console.log('User Deleted');
   
@@ -175,9 +177,7 @@ export class AdminUsersComponent implements OnInit {
       }
     );
   }
-  
-  // This is a hypothetical function, replace it with your actual token retrieval logic
- 
+   
 
   showSnackBar(message: string, cssClass: string) {
     this.snackBar.open(message, 'Close', {
