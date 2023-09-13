@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-activityby-imc',
@@ -14,11 +15,43 @@ export class ActivitybyImcComponent implements OnInit {
   userId: number | undefined;
   imcId: number | undefined;
   activity: any ;
+  videoUrl: any;
+  sanitizedVideoUrl?: SafeResourceUrl;
+  act?:any
 
   constructor(
     private snackBar: MatSnackBar,
-    private http: HttpClient
+    private http: HttpClient,
+    private sanitizer: DomSanitizer
   ) {}
+
+  openVideoModal(id: string) {
+    const authToken = localStorage.getItem('token');
+  
+    if (authToken) {
+      // Create headers with authorization token
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${authToken}`
+      });
+  
+      // Use the headers to make the GET request
+      this.http.get<any>('http://localhost:8000/api/activities/'+id, { headers })
+        .subscribe(
+          response => {
+            this.act = response.activity;
+            this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.act.video)
+           console.log(this.act.video)
+          },
+          error => {
+            console.log('Error fetching user data:', error);
+          }
+        );
+    }
+  }
+
+  closeVideoModal() {
+    this.videoUrl = null;
+  }
 
   ngOnInit() {
     // Get the token from local storage
@@ -66,8 +99,9 @@ export class ActivitybyImcComponent implements OnInit {
 
     this.http.get<any>(apiUrl, { headers: headers }).subscribe(
       (response: any) => {
-        console.log(response);
         this.activity = response.activity;
+        console.log(this.activity)
+        
         this.imc = response.imc; 
         this.showSnackBar('Activity data fetched successfully', 'success-snackbar');
       },

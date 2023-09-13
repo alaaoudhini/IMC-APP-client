@@ -1,8 +1,8 @@
 <div class="vh-100 bg-image" style="background-image: url('');">
   <app-navbar></app-navbar>   
-
-    <div class="container">
-      <div class="card">
+<br><br><br>
+    <div class="container" style="background-color: white;">
+      <div class="card " style="background-color: white;">
         <div class="card-header">
           Manage Activities
         </div>
@@ -49,11 +49,11 @@
           </table>
         </div>
       </div>
-      <div class="card">
-        <div class="card-header">
+      <div class="card"style="background-color: white;">
+        <div class="card-header"style="background-color: white;">
           Activity
         </div>
-        <div class="add-activity-form">
+        <div class="add-activity-form"style="background-color: white;">
           <form [formGroup]="activityForm" (ngSubmit)="addActivitiesData()">
             <label for="name">Name</label>
             <input type="text" id="name" formControlName="nom_act" >

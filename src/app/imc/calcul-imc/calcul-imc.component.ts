@@ -68,7 +68,6 @@ export class CalculImcComponent {
       },
       (error) => {
         console.error('Error calculating IMC:', error); 
-        this.showSnackBar('Error calculating IMC', 'error-snackbar');
       }
     ); 
   }

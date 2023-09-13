@@ -31,7 +31,7 @@ import { ActivitybyImcComponent } from './imc/activityby-imc/activityby-imc.comp
     CalculImcComponent,
     MenuComponent,
     RegimebyIMCComponent,
-    ActivitybyImcComponent
+    ActivitybyImcComponent,
 
   ],
   imports: [

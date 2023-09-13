@@ -72,7 +72,6 @@ export class RegimebyIMCComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching regime by IMC:', error);
-        this.showSnackBar('Error fetching regime data', 'error-snackbar');
       }
     );
     

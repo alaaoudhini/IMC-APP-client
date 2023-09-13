@@ -13,7 +13,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 export class MenuComponent  {
   selectedFile: File | null = null;
   user: any;
-  isOpen = false;
+  isOpen = true;
   previewUrl: SafeUrl | null = null; 
    private subscription: Subscription | undefined;
 
