@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 
 export interface User {
   id: number;
@@ -38,7 +38,14 @@ export interface Regime {
 
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  private currentUserSubject: BehaviorSubject<any>;
+    public currentUser: Observable<any>;
+
+  constructor(private http: HttpClient) {
+    this.currentUserSubject= new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+    this.currentUser = this.currentUserSubject.asObservable();
+
+   }
 
   login(headers: any, loginForm: any): Observable<User> {
     const apiUrl = 'http://localhost:8000/api/login';
@@ -49,10 +56,23 @@ export class UserService {
       password: loginForm.password,
     };
   
-    return this.http.post<User>(apiUrl, authData , { headers: httpHeaders });
+    return this.http.post<User>(apiUrl, authData , { headers: httpHeaders }).pipe(map(user=>{
+      localStorage.setItem('currentUser',JSON.stringify(user))
+      this.currentUserSubject.next(user)
+      return user
+    }));
   }
-  
 
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+}
+
+logout() {
+  // remove user from local storage to log user out
+  localStorage.removeItem('currentUser');
+  localStorage.removeItem('token');
+  this.currentUserSubject.next(null);
+}
   getUsers(headers: any): Observable<User[]> 
   {
   const apiUrl = 'http://localhost:8000/api/users';

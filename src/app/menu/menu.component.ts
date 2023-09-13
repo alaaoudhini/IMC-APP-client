@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class MenuComponent  {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private sanitizer: DomSanitizer // Add this line
+    private sanitizer: DomSanitizer ,
+    private authenticationService: UserService// Add this line
 
   ) {}
 
@@ -29,9 +31,9 @@ export class MenuComponent  {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/']);
-  }
+    this.authenticationService.logout();
+    this.router.navigate(['']);
+}
 
   ngOnInit() {
     // Get the token from local storage

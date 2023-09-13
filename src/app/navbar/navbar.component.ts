@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +10,12 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   constructor(
     private router: Router,
+    private authenticationService: UserService
   ){}
 
-  logout(){
-    localStorage.removeItem('token')
-    this.router.navigate(['/']);
-  }
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['']);
+}
 
 }
